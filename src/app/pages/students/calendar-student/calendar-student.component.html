@@ -1,0 +1,32 @@
+<app-navbar-student></app-navbar-student>
+
+<div class="content-wrapper">
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Dashboard</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Dashboard v1</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="calendar">
+    <div *ngFor="let horario of horarios" class="horario">
+      <h3>{{ horario.titulo }}</h3>
+      <p><strong>Día de la semana:</strong> {{ horario.dia_semana }}</p>
+      <p><strong>Fecha:</strong> {{ horario.fecha }}</p>
+      <p><strong>Hora de inicio:</strong> {{ horario.hora_inicio }}</p>
+      <p><strong>Hora de fin:</strong> {{ horario.hora_fin }}</p>
+      <p><strong>Duración:</strong> {{ horario.duracion }} minutos</p>
+      <!-- Puedes agregar más detalles según lo necesites -->
+    </div>
+  </div>
+  
+</div>
