@@ -1,0 +1,25 @@
+<app-navbar-student></app-navbar-student>
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h2>Perfil del Profesor</h2>
+        <div class="card">
+
+            <img [src]="profesor.foto" class="card-img-top"> 
+          <div class="card-body">
+            <h5 class="card-title">{{ profesor.nombre }}</h5>
+            <p class="card-text">{{ profesor.especialidad }}</p>
+            <p class="card-text">{{ profesor.descripcion }}</p>
+          </div>
+        </div>
+
+        <mwl-calendar-week-view
+        [viewDate]="viewDate"
+        [events]="eventos"
+        [hourSegments]="2"
+        [hourSegmentHeight]="50"
+      ></mwl-calendar-week-view>
+      </div>
+    </div>
+  </div>
+  

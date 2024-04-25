@@ -79,7 +79,7 @@ export class TeacherComponent {
     .subscribe(
       response => {
         console.log('Respuesta del servidor:', response);
-        alert('Profesor creado correctamente. ID del profesor: ' + response.id);
+        alert('Profesor creado correctamente');
         this.router.navigate(['/otra-pagina']);
       },
       error => {
