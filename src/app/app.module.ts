@@ -21,16 +21,13 @@ import { CalendarStudentComponent } from './pages/students/calendar-student/cale
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
-<<<<<<< Updated upstream
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { PrecioComponent } from './pages/precio/precio.component';
 import { BlogComponent } from './pages/blog/blog.component';
-=======
 import { ClassroomComponent } from './pages/meetings/classroom/classroom.component';
 import { MessagesComponent } from './pages/students/messages/messages.component';
 import { TeacherProfileComponent } from './pages/students/teacher-profile/teacher-profile.component';
 import { ConversationComponent } from './pages/students/conversation/conversation.component';
->>>>>>> Stashed changes
 
 
 @NgModule({
@@ -50,16 +47,13 @@ import { ConversationComponent } from './pages/students/conversation/conversatio
     NavbarStudentComponent,
     CalendarStudentComponent,
     CalendarStudentComponent,
-<<<<<<< Updated upstream
     InicioComponent,
     PrecioComponent,
-    BlogComponent
-=======
+    BlogComponent,
     ClassroomComponent,
     MessagesComponent,
     TeacherProfileComponent,
     ConversationComponent
->>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,

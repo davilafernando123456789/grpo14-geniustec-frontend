@@ -11,15 +11,24 @@ import { NavbarStudentComponent } from './pages/students/navbar-student/navbar-s
 // import { CoursesComponent } from './pages/students/courses/courses.component';
 import { HomeComponent } from './pages/students/home/home.component';
 import { CalendarStudentComponent } from './pages/students/calendar-student/calendar-student.component';
-<<<<<<< Updated upstream
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { PrecioComponent } from './pages/precio/precio.component';
 import { BlogComponent } from './pages/blog/blog.component';
-
-
+import { ClassroomComponent } from './pages/meetings/classroom/classroom.component';
+import { MessagesComponent } from './pages/students/messages/messages.component';
+import { TeacherProfileComponent } from './pages/students/teacher-profile/teacher-profile.component';
+import { ConversationComponent } from './pages/students/conversation/conversation.component';
 
 const routesInicio: Routes = [
   { path: '', component: InicioComponent },
+  { path: 'crear-usuario', component: CreateUserComponent, data: { message: 'Create User route' } },
+  { path: 'listar-productos', component: ListarProductosComponent, data: { message: 'List Products route' } },
+  { path: 'crear-productos', component: CrearProductosComponent, data: { message: 'Create Products route' } },
+  { path: 'registerStudent', component: StudentComponent, data: { message: 'Register Student route' } },
+  { path: 'registerTeacher', component: TeacherComponent, data: { message: 'Register Teacher route' } },
+  { path: 'navbar', component: NavbarStudentComponent, data: { message: 'Navbar Student route' } },
+  // { path: 'home', component: NavbarStudentComponent },
+  // { path: 'coursesStudent', component: CoursesComponent, data: { message: 'Courses Student route' } },
   { path: 'precio', component: PrecioComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'login', component: LoginComponent },
@@ -29,24 +38,6 @@ const routesInicio: Routes = [
   { path: 'registerStudent', component: StudentComponent },
   { path: 'registerTeacher', component: TeacherComponent },
   { path: 'navbar', component: NavbarStudentComponent },
-  { path: 'coursesStudent', component: CoursesComponent },
-=======
-import { ClassroomComponent } from './pages/meetings/classroom/classroom.component';
-import { MessagesComponent } from './pages/students/messages/messages.component';
-import { TeacherProfileComponent } from './pages/students/teacher-profile/teacher-profile.component';
-import { ConversationComponent } from './pages/students/conversation/conversation.component';
-
-const routesInicio: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'crear-usuario', component: CreateUserComponent, data: { message: 'Create User route' } },
-  { path: 'listar-productos', component: ListarProductosComponent, data: { message: 'List Products route' } },
-  { path: 'crear-productos', component: CrearProductosComponent, data: { message: 'Create Products route' } },
-  { path: 'registerStudent', component: StudentComponent, data: { message: 'Register Student route' } },
-  { path: 'registerTeacher', component: TeacherComponent, data: { message: 'Register Teacher route' } },
-  { path: 'navbar', component: NavbarStudentComponent, data: { message: 'Navbar Student route' } },
-  // { path: 'home', component: NavbarStudentComponent },
-  // { path: 'coursesStudent', component: CoursesComponent, data: { message: 'Courses Student route' } },
->>>>>>> Stashed changes
   { path: 'home', component: HomeComponent },
   { path: 'meetings', component: ClassroomComponent, data: { message: 'meetings route' } },
   { path: 'conversation', component: ConversationComponent, data: { message: 'ConversationComponent route' } },
