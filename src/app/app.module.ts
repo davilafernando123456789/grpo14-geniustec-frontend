@@ -22,6 +22,9 @@ import { CalendarStudentComponent } from './pages/students/calendar-student/cale
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { InicioComponent } from './pages/inicio/inicio.component';
+import { PrecioComponent } from './pages/precio/precio.component';
+import { BlogComponent } from './pages/blog/blog.component';
 
 
 @NgModule({
@@ -40,7 +43,10 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     CoursesComponent,
     NavbarStudentComponent,
     CalendarStudentComponent,
-    CalendarStudentComponent
+    CalendarStudentComponent,
+    InicioComponent,
+    PrecioComponent,
+    BlogComponent
   ],
   imports: [
     BrowserModule,

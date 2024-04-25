@@ -11,12 +11,17 @@ import { NavbarStudentComponent } from './pages/students/navbar-student/navbar-s
 import { CoursesComponent } from './pages/students/courses/courses.component';
 import { HomeComponent } from './pages/students/home/home.component';
 import { CalendarStudentComponent } from './pages/students/calendar-student/calendar-student.component';
-
+import { InicioComponent } from './pages/inicio/inicio.component';
+import { PrecioComponent } from './pages/precio/precio.component';
+import { BlogComponent } from './pages/blog/blog.component';
 
 
 
 const routesInicio: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: InicioComponent },
+  { path: 'precio', component: PrecioComponent },
+  { path: 'blog', component: BlogComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'crear-usuario', component: CreateUserComponent },
   { path: 'listar-productos', component: ListarProductosComponent },
   { path: 'crear-productos', component: CrearProductosComponent },
