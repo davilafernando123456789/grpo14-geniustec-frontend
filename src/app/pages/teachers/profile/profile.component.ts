@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CursoService } from '../services/courses.service';
+import { CursoService } from '../../students/services/courses.service';
 import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import { EventClickArg } from '@fullcalendar/core';
 import { Router, NavigationExtras } from '@angular/router';
+import { TeacherService } from '../teacher.service';
 
 interface ExtendedProps {
   horarioId: string;
@@ -13,14 +14,15 @@ interface ExtendedProps {
 }
 
 @Component({
-  selector: 'app-teacher-profile',
-  templateUrl: './teacher-profile.component.html',
-  styleUrls: ['./teacher-profile.component.css'],
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css'],
 })
-export class TeacherProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit {
   profesorId: string | null = null;
   profesor: any;
   horarios: any[] = [];
+  editMode = false; 
   calendarOptions: CalendarOptions = {
     initialView: 'timeGridWeek', // Cambiar a la vista semanal de timeGrid
     headerToolbar: {
@@ -43,13 +45,16 @@ export class TeacherProfileComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.profesorId = this.route.snapshot.paramMap.get('id');
-    if (this.profesorId) {
+    const usuarioString = sessionStorage.getItem('usuario');
+    if (usuarioString) {
+      const usuario = JSON.parse(usuarioString);
+      this.profesorId = usuario.id as string;
       this.obtenerProfesor(); // Llama a la función para obtener los detalles del profesor
     } else {
-      console.error('ID de profesor no encontrado en la URL');
+      console.error('ID de profesor no encontrado en la sesión');
     }
   }
+
 
   obtenerProfesor(): void {
     this.cursoService.obtenerProfesorPorId(this.profesorId!).subscribe(
@@ -61,6 +66,19 @@ export class TeacherProfileComponent implements OnInit {
         console.error('Error al obtener el profesor:', error);
       }
     );
+  }
+  guardarCambios() {
+    this.cursoService.actualizarProfesor(this.profesorId!, this.profesor)
+      .subscribe(
+        () => {
+          // Manejar la respuesta exitosa
+          this.editMode = false; // Salir del modo de edición
+        },
+        (error) => {
+          // Manejar el error
+          console.error(error);
+        }
+      );
   }
 
   handleEventClick(arg: EventClickArg) {
@@ -96,24 +114,4 @@ export class TeacherProfileComponent implements OnInit {
   
     this.router.navigate(['/confirmation', horarioId, profesorId]);
   }
-  
-  
-  
-  
 }
-
-  // obtenerHorariosProfesor(): void {
-  //   this.cursoService.obtenerHorariosPorProfesor(this.profesorId!).subscribe(
-  //     (data) => {
-  //       this.horarios = data;
-  //       this.calendarOptions.events = this.horarios.map(horario => ({
-  //         // title: horario.titulo,
-  //         start: horario.fecha + 'T' + horario.hora_inicio,
-  //         end: horario.fecha + 'T' + horario.hora_fin
-  //       }));
-  //     },
-  //     (error) => {
-  //       console.error('Error al obtener los horarios del profesor:', error);
-  //     }
-  //   );
-  // }

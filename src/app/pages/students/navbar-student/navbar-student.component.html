@@ -147,35 +147,23 @@
   </nav>
   <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="../../../../assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
         class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light"><strong>GENIUS</strong>TEC</span>
     </a>
-
-    <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <ng-container *ngIf="usuarioLogueado?.rol === 2">
         <div class="image">
-          <img src="../../../../assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img [src]="usuarioLogueado?.foto" class="img-circle elevation-2" alt="User Image">
         </div>
+      </ng-container>
         <div class="info">
-       <!-- En el template del NavbarComponent -->
-
   <a href="#" class="d-block">{{ usuarioLogueado?.nombre }}</a>
-
-
-
         </div>
       </div>
-
-
-
-      <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
           <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
@@ -187,11 +175,10 @@
         </div>
       </div>
 
-      <!-- Sidebar Menu -->
+   
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-                 with font-awesome or any other icon font library -->
+      
           <li class="nav-item menu-open">
             <a routerLink="/home" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -200,16 +187,25 @@
               </p>
             </a>
           </li>
+          <ng-container *ngIf="usuarioLogueado?.rol === 2">
+            <li class="nav-item">
+              <a routerLink="/conversations" class="nav-link">
+                <i class="nav-icon far fa-envelope"></i>
+                <p>Mensajes</p>
+              </a>
+            </li>
+          </ng-container>
+          <ng-container *ngIf="usuarioLogueado?.rol === 1">
+            <li class="nav-item">
+              <a routerLink="/conversation" class="nav-link">
+                <i class="nav-icon far fa-envelope"></i>
+                <p>Mensajes</p>
+              </a>
+            </li>
+          </ng-container>
+          <ng-container *ngIf="usuarioLogueado?.rol === 1">
           <li class="nav-item">
-            <a routerLink="/conversation" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
-              <p>
-                Mensajes
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a  routerLink="/conversation" class="nav-link">
+            <a  routerLink="/calendarStudent" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Calendario
@@ -217,52 +213,73 @@
               </p>
             </a>
           </li>
-
-          <!-- <li class="nav-item">
-            <a routerLink="/coursesStudent"  class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
+        </ng-container>
+        <ng-container *ngIf="usuarioLogueado?.rol === 2">
+          <li class="nav-item">
+            <a  routerLink="/calendarTeacher" class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
               <p>
-                Cursos
+                Calendario
+                <span class="badge badge-info right">2</span>
               </p>
             </a>
-          </li> -->
-<!--         
+          </li>
+        </ng-container>
+        <ng-container *ngIf="usuarioLogueado?.rol === 1">
           <li class="nav-item">
-            <a routerLink="/home"  class="nav-link">
-              <i class="nav-icon fas fa-users "></i>
-              <p>
-                Profesores
-              </p>
-            </a>
-          </li> -->
-          <li class="nav-item">
-            <a routerLink="/coursesStudent" class="nav-link">
+            <a routerLink="/conversation" class="nav-link">
               <i class="nav-icon fas fa-bell"></i>
               <p>
                 Notificaciones
               </p>
             </a>
           </li>
+        </ng-container>
+        <ng-container *ngIf="usuarioLogueado?.rol === 2">
           <li class="nav-item">
-            <a routerLink="/coursesStudent"  class="nav-link">
-              <i class="nav-icon fas fa-chalkboard-teacher"></i>
+            <a routerLink="/conversations" class="nav-link">
+              <i class="nav-icon fas fa-bell"></i>
               <p>
-                Sala de clase
+                Notificaciones
               </p>
             </a>
           </li>
-          <br><br><br><br><br><br><br><br><br>
+        </ng-container>
+            <li class="nav-item">
+              <a routerLink="/meetings"  class="nav-link">
+                <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                <p>
+                  Sala de clase
+                </p>
+              </a>
+            </li>
+          <br><br><br><br><br><br><br>
           <li class="nav-header">Ajustes</li>
+         
+          <ng-container *ngIf="usuarioLogueado?.rol === 1">
+            <li class="nav-item">
+              <a routerLink="/studentProfile" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p>Cuenta</p>
+              </a>
+            </li>
+          </ng-container>
+          <ng-container *ngIf="usuarioLogueado?.rol === 2">
+            <li class="nav-item">
+              <a routerLink="/profile" class="nav-link">
+                <i class="nav-icon fas fa-user"></i>
+                <p>Cuenta</p>
+              </a>
+            </li>
+          </ng-container>
           <li class="nav-item">
-            <a routerLink="/coursesStudent" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
-              <p>Cuenta</p>
+            <a class="nav-link" (click)="cerrarSesion()">
+              <i class="nav-icon fas fa-sign-out-alt"></i>
+              <p>Cerrar sesión</p>
             </a>
           </li>
           <br><br><br><br><br><br><br><br><br>
         </ul>
       </nav>
-      <!-- /.sidebar-menu -->
     </div>
-    <!-- /.sidebar -->
   </aside>

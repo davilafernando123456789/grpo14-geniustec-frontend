@@ -1,4 +1,18 @@
-<h4>Bienvenido a la seccion de reuniones pendientes</h4>
-<div *ngIf="sala">
-  <button (click)="ingresarReunion()">Ir a Reunión</button>
+<app-navbar-student></app-navbar-student>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h4>Bienvenido a la sección de reuniones pendientes</h4>
+      <div *ngFor="let reunion of reuniones">
+        <p>Fecha: {{ reunion.fecha }}</p>
+        <p>Hora de inicio: {{ reunion.horaInicio }}</p>
+        <p>Hora de fin: {{ reunion.horaFin }}</p>
+        <div *ngIf="reunion.sala">
+          <button (click)="ingresarReunion(reunion.sala)">Ir a Reunión</button>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

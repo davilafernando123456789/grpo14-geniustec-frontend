@@ -23,7 +23,7 @@ export class ConversationComponent implements OnInit {
       const usuario = JSON.parse(usuarioString);
       const usuarioId = usuario.id as string;
       // Llama al método del servicio para obtener IDs de profesores por ID de usuario
-      this.cursoService.obtenerProfesoresPorUsuarioId(usuarioId).subscribe(
+      this.cursoService.obtenerAlumnosPorUsuarioId(usuarioId).subscribe(
         (profesoresIds: any[]) => {
           console.log('Respuesta de obtenerProfesoresPorUsuarioId:', profesoresIds);
           // Para cada ID de profesor, llama al método del servicio para obtener los detalles del profesor
@@ -58,8 +58,6 @@ export class ConversationComponent implements OnInit {
   }
 
   iniciarConversacion(profesorId: number): void {
-    // Aquí podrías navegar a la conversación con el profesor seleccionado
-    // Por ejemplo:
     this.router.navigate(['/messages', profesorId]);
   }
 }

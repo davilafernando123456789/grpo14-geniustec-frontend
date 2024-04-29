@@ -80,7 +80,8 @@ export class TeacherComponent {
       response => {
         console.log('Respuesta del servidor:', response);
         alert('Profesor creado correctamente');
-        this.router.navigate(['/otra-pagina']);
+        // this.router.navigate(['/otra-pagina']);
+        this.router.navigate(['/calendarRegister', response.usuario.id]);
       },
       error => {
         console.error('Error al enviar los datos:', error);

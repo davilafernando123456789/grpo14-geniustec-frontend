@@ -26,7 +26,8 @@ export class LoginComponent {
         if (response.mensaje === 'OK') {
           // Almacena los datos de sesión en sessionStorage
           sessionStorage.setItem('token', response.token);
-          sessionStorage.setItem('usuario', JSON.stringify(response.usuario));
+          // sessionStorage.setItem('usuario', JSON.stringify(response.usuario));
+          sessionStorage.setItem('usuario', JSON.stringify({ ...response.usuario, rol: response.rol }));
           let navigationExtras: NavigationExtras = {
             state: { usuario: response.usuario },
           };
@@ -36,7 +37,7 @@ export class LoginComponent {
             this.router.navigate(['/home'], navigationExtras);
           } else if (response.rol === 2) {
             console.log('Redirigiendo al componente del profesor');
-            this.router.navigate(['/home'], navigationExtras);
+            this.router.navigate(['/conversations'], navigationExtras);
           }
         } else {
           console.log('Credenciales incorrectas');

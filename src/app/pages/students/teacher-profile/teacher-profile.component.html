@@ -12,13 +12,11 @@
             <p class="card-text">{{ profesor.descripcion }}</p>
           </div>
         </div>
-
-        <mwl-calendar-week-view
-        [viewDate]="viewDate"
-        [events]="eventos"
-        [hourSegments]="2"
-        [hourSegmentHeight]="50"
-      ></mwl-calendar-week-view>
+          <!-- teacher-profile.component.html -->
+          <div class="teacher-profile">
+            <h2>Horarios del profesor</h2>
+            <full-calendar [options]="calendarOptions"></full-calendar>
+          </div>          
       </div>
     </div>
   </div>

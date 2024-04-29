@@ -1,0 +1,28 @@
+<app-navbar-student></app-navbar-student>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div *ngIf="alumno">
+        <h2>Perfil del Alumno</h2>
+        <p><strong>ID:</strong> {{ alumno.id }}</p>
+        <p *ngIf="!editMode"><strong>Email:</strong> {{ alumno.email }}</p>
+        <input *ngIf="editMode" [(ngModel)]="alumno.email" type="email" placeholder="Email">
+        <p *ngIf="!editMode"><strong>Usuario:</strong> {{ alumno.usuario }}</p>
+        <input *ngIf="editMode" [(ngModel)]="alumno.usuario" type="text" placeholder="Usuario">
+        <p *ngIf="!editMode"><strong>Nombre:</strong> {{ alumno.nombre }}</p>
+        <input *ngIf="editMode" [(ngModel)]="alumno.nombre" type="text" placeholder="Nombre">
+        <p *ngIf="!editMode"><strong>Apellido:</strong> {{ alumno.apellido }}</p>
+        <input *ngIf="editMode" [(ngModel)]="alumno.apellido" type="text" placeholder="Apellido">
+        <p *ngIf="!editMode"><strong>Género:</strong> {{ alumno.genero }}</p>
+        <input *ngIf="editMode" [(ngModel)]="alumno.genero" type="text" placeholder="Género">
+        <p *ngIf="!editMode"><strong>Teléfono:</strong> {{ alumno.telefono }}</p>
+        <input *ngIf="editMode" [(ngModel)]="alumno.telefono" type="text" placeholder="Teléfono">
+        <p *ngIf="!editMode"><strong>Fecha de Nacimiento:</strong> {{ alumno.fecha_nac }}</p>
+        <input *ngIf="editMode" [(ngModel)]="alumno.fecha_nac" type="date" placeholder="Fecha de Nacimiento">
+        <button *ngIf="!editMode" (click)="editMode = true">Editar</button>
+        <button *ngIf="editMode" (click)="guardarCambios()">Guardar</button>
+        <button *ngIf="editMode" (click)="editMode = false">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

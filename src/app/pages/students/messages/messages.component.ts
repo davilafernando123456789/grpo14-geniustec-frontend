@@ -24,7 +24,6 @@ export class MessagesComponent implements OnInit {
   archivoParaEnviar: Archivo | null = null;
   remite_id: number | null = null; // ID del alumno logueado
   destinatario_id: number | null = null; // ID del profesor seleccionado
-
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
@@ -162,12 +161,12 @@ export class MessagesComponent implements OnInit {
           contenido: mensajeTexto,
           remite_id: this.remite_id,
           destinatario_id: this.destinatario_id,
+          sent: false,
           audio_url: this.audioParaEnviar ? this.audioParaEnviar : null,
           archivo_url: this.archivoParaEnviar ? this.archivoParaEnviar : null,
         };
 
         this.socket.emit('mensaje', mensaje);
-
         this.nuevoMensaje = '';
         this.audioParaEnviar = null;
         this.archivoParaEnviar = null;
@@ -178,6 +177,7 @@ export class MessagesComponent implements OnInit {
         if (fileInput) {
           fileInput.value = ''; // Limpiar el valor del campo de archivo
         }
+        this.cargarMensajesAnteriores();
       }
     } else {
       console.error('No se ha establecido el remitente o destinatario.');

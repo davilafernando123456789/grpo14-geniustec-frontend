@@ -4,15 +4,15 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import { EventClickArg } from '@fullcalendar/core';
 import { Router } from '@angular/router';
-import { CursoService } from '../services/courses.service';
+import { CursoService } from '../../students/services/courses.service';
 
 @Component({
-  selector: 'app-calendar-student',
-  templateUrl: './calendar-student.component.html',
-  styleUrls: ['./calendar-student.component.css'],
+  selector: 'app-calendar-teacher',
+  templateUrl: './calendar-teacher.component.html',
+  styleUrls: ['./calendar-teacher.component.css'],
 })
-export class CalendarStudentComponent implements OnInit {
-  alumnoId: string | null = null;
+export class CalendarTeacherComponent implements OnInit {
+  profesorId: string | null = null;
   horarios: any[] = [];
   calendarOptions: CalendarOptions = {
     initialView: 'timeGridWeek',
@@ -32,23 +32,23 @@ export class CalendarStudentComponent implements OnInit {
   constructor(private cursoService: CursoService, private router: Router) {}
 
   ngOnInit(): void {
-    this.getAlumnoIdFromSession();
+    this.getProfesorIdFromSession();
   }
   
-  getAlumnoIdFromSession(): void {
+  getProfesorIdFromSession(): void {
     const usuarioString = sessionStorage.getItem('usuario');
     if (usuarioString) {
       const usuario = JSON.parse(usuarioString);
-      this.alumnoId = usuario.id as string;
-      console.log('ID del alumno:', this.alumnoId);
-      this.obtenerHorariosAlumno();
+      this.profesorId = usuario.id as string;
+      console.log('ID del profesorId:', this.profesorId);
+      this.obtenerHorariosProfsor();
     } else {
-      console.error('ID de alumno no encontrado en la sesión');
+      console.error('ID de profesorId no encontrado en la sesión');
     }
   }
   
-  obtenerHorariosAlumno(): void {
-    this.cursoService.obtenerInscripcionesPorAlumnoId(this.alumnoId!).subscribe(
+  obtenerHorariosProfsor(): void {
+    this.cursoService.obtenerProfesoresPorUsuarioId(this.profesorId!).subscribe(
       (inscripciones: any[]) => {
         console.log('Inscripciones obtenidas:', inscripciones);
         const horarioIds = inscripciones.map(inscripcion => inscripcion.Horario_id);
@@ -70,7 +70,7 @@ export class CalendarStudentComponent implements OnInit {
         );
       },
       (error) => {
-        console.error('Error al obtener inscripciones del alumno:', error);
+        console.error('Error al obtener inscripciones del profesor:', error);
       }
     );
   }

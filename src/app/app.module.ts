@@ -28,8 +28,16 @@ import { ClassroomComponent } from './pages/meetings/classroom/classroom.compone
 import { MessagesComponent } from './pages/students/messages/messages.component';
 import { TeacherProfileComponent } from './pages/students/teacher-profile/teacher-profile.component';
 import { ConversationComponent } from './pages/students/conversation/conversation.component';
-
-
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { CalendarComponent } from './pages/users/register/calendar/calendar.component';
+import { ConfirmationComponent } from './pages/students/confirmation/confirmation.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { ConversationsComponent } from './pages/teachers/conversations/conversations.component';
+import { MessageComponent } from './pages/teachers/message/message.component';
+import { NavbarTeacherComponent } from './pages/teachers/navbar-teacher/navbar-teacher.component';
+import { ProfileComponent } from './pages/teachers/profile/profile.component';
+import { StudentProfileComponent } from './pages/students/student-profile/student-profile.component';
+import { CalendarTeacherComponent } from './pages/teachers/calendar-teacher/calendar-teacher.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +51,6 @@ import { ConversationComponent } from './pages/students/conversation/conversatio
     StudentComponent,
     TeacherComponent,
     HomeComponent,
-    // CoursesComponent,
     NavbarStudentComponent,
     CalendarStudentComponent,
     CalendarStudentComponent,
@@ -53,19 +60,29 @@ import { ConversationComponent } from './pages/students/conversation/conversatio
     ClassroomComponent,
     MessagesComponent,
     TeacherProfileComponent,
-    ConversationComponent
+    ConversationComponent,
+    CalendarComponent,
+    ConfirmationComponent,
+    ConversationsComponent,
+    MessageComponent,
+    NavbarTeacherComponent,
+    ProfileComponent,
+    StudentProfileComponent,
+    CalendarTeacherComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgxPayPalModule,
+    FullCalendarModule,
     BrowserAnimationsModule,
     FormsModule ,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory
-    })
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,31 @@
+.message.sent {
+  background-color: #0084ff;
+  color: white;
+
+}
+
+.message.received {
+  background-color: #f0f0f0;
+  color: black; /* Puedes ajustar el color del texto para los mensajes recibidos según tus preferencias */
+  align-self: flex-end;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  padding: 8px 12px;
+  border-radius: 20px;
+  max-width: 70%;
+  margin: 5px;
+}
+
+.message.sent .message-content,
+.message.received .message-content {
+  max-width: 100%; /* Ajusta el ancho máximo del contenido del mensaje */
+}
 
 .header {
   background-color: #0084ff;
@@ -9,34 +37,6 @@
   color: white;
   border: none;
   cursor: pointer;
-}
-
-.messages {
-  padding: 10px;
-}
-
-.message {
-  background-color: #f0f0f0;
-  padding: 8px 12px;
-  border-radius: 20px;
-  max-width: 70%;
-  margin: 5px;
-}
-
-.message.sent {
-  background-color: #0084ff;
-  color: white;
-  align-self: flex-end;
-}
-
-
-.message-content a {
-  text-decoration: none;
-  color: #0084ff;
-}
-
-.message-content audio {
-  width: 100%;
 }
 
 .input-container {
