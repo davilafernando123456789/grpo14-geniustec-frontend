@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 offset-md-3">
+        <div class="row">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Listado de Inscripciones</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>ID del Alumno:</th>
+                    <th>ID del Profesor:</th>
+                    <th>ID del Horario:</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let inscripcion of inscripciones" (click)="selectInscripcion(inscripcion)">
+                    <td>{{ inscripcion.id }}</td>
+                    <td>{{ inscripcion.Alumnos_id }}</td>
+                    <td>{{ inscripcion.Profesores_id }}</td>
+                    <td>{{ inscripcion.Horario_id  }}</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>ID</th>
+                    <th>ID del Alumno:</th>
+                    <th>ID del Profesor:</th>
+                    <th>ID del Horario:</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>  

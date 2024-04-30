@@ -1,0 +1,57 @@
+
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 offset-md-3">
+        <div class="row">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Listado de horarios</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Día de la Semana</th>
+                    <th>Hora de Inicio</th>
+                    <th>Hora de Fin</th>
+                    <th>Fecha</th>
+                    <th>Duración</th>
+                    <th>ID del Profesor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let horario of horarios" (click)="selectHorario(horario)">
+                    <td>{{ horario.id }}</td>
+                    <td>{{ horario.titulo }}</td>
+                    <td>{{ horario.dia_semana }}</td>
+                    <td>{{ horario.hora_inicio  }}</td>
+                    <td>{{ horario.hora_fin  }}</td>
+                    <td>{{ horario.fecha  }}</td>
+                    <td>{{ horario.duracion  }}</td>
+                    <td>{{ horario.Profesores_id  }}</td>
+
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Día de la Semana</th>
+                    <th>Hora de Inicio</th>
+                    <th>Hora de Fin</th>
+                    <th>Fecha</th>
+                    <th>Duración</th>
+                    <th>ID del Profesor</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>  

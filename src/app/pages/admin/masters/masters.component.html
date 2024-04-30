@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 offset-md-3">
+            <div class="row">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Listado de tutores</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre:</th>
+                                    <th>Apellido:</th>
+                                    <th>Correo</th>
+                                    <th>Telefono</th>
+                                    <th>Especialidad</th>
+                                    <th>Descripcion</th>
+                                    <th>Sala</th>
+                                    <th>Usuario</th>
+                                    <th>Password</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let profesor of profesores">
+                                    <td>{{ profesor.id }}</td>
+                                    <td>{{ profesor.nombre }}</td>
+                                    <td>{{ profesor.apellido }}</td>
+                                    <td>{{ profesor.email }}</td>
+                                    <td>{{ profesor.telefono }}</td>
+                                    <td>{{ profesor.especialidad }}</td>
+                                    <td>{{ profesor.descripcion }}</td>
+                                    <td>{{ profesor.sala }}</td>
+                                    <td>{{ profesor.usuario }}</td>
+                                    <td>{{ profesor.password }}</td>
+                                    <td>
+                                        <button class="btn btn-success btn-sm"
+                                            (click)="editProfesor(profesor)">Editar</button>
+                                        <button class="btn btn-danger btn-sm"
+                                            (click)="eliminarProfesor(profesor.id)">Eliminar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card">
+                        <table class="table table-primary">
+                            <tr *ngIf="editingProfesor">
+                                <td>{{ editingProfesor.id }}</td>
+                                <td><input type="text" [(ngModel)]="editingProfesor.nombre" /></td>
+                                <td><input type="text" [(ngModel)]="editingProfesor.apellido" /></td>
+                                <td><input type="text" [(ngModel)]="editingProfesor.email" /></td>
+                                <td><input type="text" [(ngModel)]="editingProfesor.telefono" /></td>
+                                <td><input type="text" [(ngModel)]="editingProfesor.especialidad" /></td>
+                                <td><input type="text" [(ngModel)]="editingProfesor.descripcion" /></td>
+                                <td><input type="text" [(ngModel)]="editingProfesor.sala" /></td>
+                                <td><input type="text" [(ngModel)]="editingProfesor.usuario" /></td>
+                                <td><input type="text" [(ngModel)]="editingProfesor.password" /></td>
+                                <td>
+                                    <button class="btn btn-primary btn-sm"
+                                        (click)="guardarEdicion()">Guardar</button>
+                                    <button class="btn btn-secondary btn-sm"
+                                        (click)="cancelarEdicion()">Cancelar</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

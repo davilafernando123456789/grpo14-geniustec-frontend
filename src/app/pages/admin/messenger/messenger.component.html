@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 offset-md-3">
+        <div class="row">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Mensajes</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Contenido</th>
+                    <th>Remitente ID</th>
+                    <th>Destinatario ID</th>
+                    <th>Archivo URL</th>
+                    <th>Audio URL</th>
+                    <th>Enviado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let mensaje of mensajes" (click)="selectMensaje(mensaje)">
+                    <td>{{ mensaje.id }}</td>
+                    <td>{{ mensaje.contenido }}</td>
+                    <td>{{ mensaje.remite_id }}</td>
+                    <td>{{ mensaje.destinatario_id }}</td>
+                    <td>{{ mensaje.archivo_url }}</td>
+                    <td>{{ mensaje.audio_url }}</td>
+                    <td>{{ mensaje.sent }}</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>ID</th>
+                    <th>Contenido</th>
+                    <th>Remitente ID</th>
+                    <th>Destinatario ID</th>
+                    <th>Archivo URL</th>
+                    <th>Audio URL</th>
+                    <th>Enviado</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>  

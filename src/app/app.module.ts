@@ -38,6 +38,12 @@ import { NavbarTeacherComponent } from './pages/teachers/navbar-teacher/navbar-t
 import { ProfileComponent } from './pages/teachers/profile/profile.component';
 import { StudentProfileComponent } from './pages/students/student-profile/student-profile.component';
 import { CalendarTeacherComponent } from './pages/teachers/calendar-teacher/calendar-teacher.component';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { MastersComponent } from './pages/admin/masters/masters.component';
+import { ScholarsComponent } from './pages/admin/scholars/scholars.component';
+import { MessengerComponent } from './pages/admin/messenger/messenger.component';
+import { InscriptionsComponent } from './pages/admin/inscriptions/inscriptions.component';
+import { SchedulesComponent } from './pages/admin/schedules/schedules.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +74,13 @@ import { CalendarTeacherComponent } from './pages/teachers/calendar-teacher/cale
     NavbarTeacherComponent,
     ProfileComponent,
     StudentProfileComponent,
-    CalendarTeacherComponent
+    CalendarTeacherComponent,
+    DashboardComponent,
+    MastersComponent,
+    ScholarsComponent,
+    MessengerComponent,
+    InscriptionsComponent,
+    SchedulesComponent
   ],
   imports: [
     BrowserModule,
