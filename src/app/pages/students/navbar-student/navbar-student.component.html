@@ -145,13 +145,11 @@
       </li>
     </ul>
   </nav>
+  
   <!-- /.navbar -->
-
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <a href="index3.html" class="brand-link">
-      <img src="../../../../assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo"
-        class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light"><strong>GENIUS</strong>TEC</span>
+    <a href="home" >
+      <img class="mt-2" src="assets/images/tesis/logo.png" width="170" height="70" alt="Nombre de tu empresa">
     </a>
     <div class="sidebar">
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -164,23 +162,11 @@
   <a href="#" class="d-block">{{ usuarioLogueado?.nombre }}</a>
         </div>
       </div>
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
-   
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
       
-          <li class="nav-item menu-open">
-            <a routerLink="/home" class="nav-link active">
+          <li class="nav-item ">
+            <a routerLink="/home" class="nav-link" routerLinkActive="active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Inicio
@@ -189,7 +175,7 @@
           </li>
           <ng-container *ngIf="usuarioLogueado?.rol === 2">
             <li class="nav-item">
-              <a routerLink="/conversations" class="nav-link">
+              <a routerLink="/conversations" class="nav-link" routerLinkActive="active">
                 <i class="nav-icon far fa-envelope"></i>
                 <p>Mensajes</p>
               </a>
@@ -197,7 +183,7 @@
           </ng-container>
           <ng-container *ngIf="usuarioLogueado?.rol === 1">
             <li class="nav-item">
-              <a routerLink="/conversation" class="nav-link">
+              <a routerLink="/conversation" class="nav-link" routerLinkActive="active">
                 <i class="nav-icon far fa-envelope"></i>
                 <p>Mensajes</p>
               </a>
@@ -205,7 +191,7 @@
           </ng-container>
           <ng-container *ngIf="usuarioLogueado?.rol === 1">
           <li class="nav-item">
-            <a  routerLink="/calendarStudent" class="nav-link">
+            <a  routerLink="/calendarStudent" class="nav-link" routerLinkActive="active">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Calendario
@@ -216,7 +202,7 @@
         </ng-container>
         <ng-container *ngIf="usuarioLogueado?.rol === 2">
           <li class="nav-item">
-            <a  routerLink="/calendarTeacher" class="nav-link">
+            <a  routerLink="/calendarTeacher" class="nav-link" routerLinkActive="active">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Calendario
@@ -225,9 +211,9 @@
             </a>
           </li>
         </ng-container>
-        <ng-container *ngIf="usuarioLogueado?.rol === 1">
+        <!-- <ng-container *ngIf="usuarioLogueado?.rol === 1">
           <li class="nav-item">
-            <a routerLink="/conversation" class="nav-link">
+            <a routerLink="/conversation" class="nav-link" routerLinkActive="active">
               <i class="nav-icon fas fa-bell"></i>
               <p>
                 Notificaciones
@@ -237,36 +223,41 @@
         </ng-container>
         <ng-container *ngIf="usuarioLogueado?.rol === 2">
           <li class="nav-item">
-            <a routerLink="/conversations" class="nav-link">
+            <a routerLink="/conversations" class="nav-link" routerLinkActive="active">
               <i class="nav-icon fas fa-bell"></i>
               <p>
                 Notificaciones
               </p>
             </a>
           </li>
-        </ng-container>
-            <li class="nav-item">
-              <a routerLink="/meetings"  class="nav-link">
+        </ng-container> -->
+          
+        <li class="nav-item">
+              <a routerLink="/meetings"  class="nav-link" routerLinkActive="active">
                 <i class="nav-icon fas fa-chalkboard-teacher"></i>
                 <p>
                   Sala de clase
                 </p>
               </a>
             </li>
-          <br><br><br><br><br><br><br>
+          <br><br><br><br><br><br><br>   <br>
+          <br>
+          <br>
+          <br>
           <li class="nav-header">Ajustes</li>
          
           <ng-container *ngIf="usuarioLogueado?.rol === 1">
             <li class="nav-item">
-              <a routerLink="/studentProfile" class="nav-link">
+              <a routerLink="/studentProfile" class="nav-link" routerLinkActive="active">
                 <i class="nav-icon fas fa-user"></i>
                 <p>Cuenta</p>
               </a>
             </li>
+         
           </ng-container>
           <ng-container *ngIf="usuarioLogueado?.rol === 2">
             <li class="nav-item">
-              <a routerLink="/profile" class="nav-link">
+              <a routerLink="/profile" class="nav-link" routerLinkActive="active">
                 <i class="nav-icon fas fa-user"></i>
                 <p>Cuenta</p>
               </a>
@@ -278,7 +269,6 @@
               <p>Cerrar sesión</p>
             </a>
           </li>
-          <br><br><br><br><br><br><br><br><br>
         </ul>
       </nav>
     </div>

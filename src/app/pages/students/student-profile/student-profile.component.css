@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #C1EDED;
+  }
+  h2 {
+    color: #36D7FF;
+    text-align: center;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: #FBB311; /* Cambiado a amarillo brillante */
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* Estilos para el contenedor principal */
+  .container {
+    margin-top: 20px;
+  }
+  
+  /* Estilos para el formulario de perfil del alumno */
+  form {
+    background-color: #C1EDED;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  /* Estilos para los botones */
+  button {
+    background-color: #36D7FF;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #36D7FF;
+  }
+  
+  /* Estilos para los campos de entrada */
+  input[type="text"],
+  input[type="email"],
+  input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Estilos para los mensajes de texto */
+  p {
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos específicos para el modo de edición */
+  .edit-mode input[type="text"],
+  .edit-mode input[type="email"],
+  .edit-mode input[type="date"] {
+    background-color: #FFFFFF;
+  }
+  
+  .edit-mode button {
+    background-color: #36D7FF;
+  }
+  .white-icon {
+    color: white;
+  }
+  

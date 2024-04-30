@@ -2,9 +2,9 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-6 offset-md-3">
+    <div class="col-md-8 offset-md-3">
       <div *ngIf="alumnos.length > 0">
-        <h2>Selecciona un alumno para iniciar la conversación:</h2>
+        <h2>Mensajes</h2>
         <ul>
           <li *ngFor="let alumno of alumnos" (click)="iniciarConversacion(alumno.id)" style="color: black;">
             {{ alumno.nombre }} {{ alumno.apellido }}
