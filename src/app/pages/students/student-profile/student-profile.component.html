@@ -19,9 +19,16 @@
         <input *ngIf="editMode" [(ngModel)]="alumno.telefono" type="text" placeholder="Teléfono">
         <p *ngIf="!editMode"><strong>Fecha de Nacimiento:</strong> {{ alumno.fecha_nac }}</p>
         <input *ngIf="editMode" [(ngModel)]="alumno.fecha_nac" type="date" placeholder="Fecha de Nacimiento">
-        <button *ngIf="!editMode" (click)="editMode = true">Editar</button>
-        <button *ngIf="editMode" (click)="guardarCambios()">Guardar</button>
-        <button *ngIf="editMode" (click)="editMode = false">Cancelar</button>
+        <button *ngIf="!editMode" (click)="editMode = true">
+          <i class="fa fa-pencil white-icon"></i> Editar
+        </button>
+        <button *ngIf="editMode" (click)="guardarCambios()">
+          <i class="fa fa-save"></i> Guardar
+        </button>
+        <button *ngIf="editMode" (click)="editMode = false">
+          <i class="fa fa-times"></i> Cancelar
+        </button>
+        
       </div>
     </div>
   </div>

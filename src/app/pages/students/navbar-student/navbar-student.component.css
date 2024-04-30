@@ -1,0 +1,31 @@
+.main-sidebar {
+    background-color: #FBB311;
+    height: 100vh; /* Establece la altura al 100% del viewport height */
+    overflow-y: auto; /* Agrega desplazamiento vertical si el contenido es más largo que la altura de la pantalla */
+  }
+  
+  .main-sidebar a {
+    color: black;
+  }
+  
+  .main-sidebar img {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .nav-sidebar .nav-item .nav-link {
+    color: black;
+  }
+  
+  .nav-sidebar .nav-item .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-sidebar .nav-header {
+    color: black;
+  }
+
+  .nav-sidebar .nav-item .nav-link.active {
+    color: hsl(0, 0%, 1%);
+    background-color: #36D7FF; /* Color de fondo con transparencia */
+  }
