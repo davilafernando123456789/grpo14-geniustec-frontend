@@ -30,14 +30,30 @@ export class AdminService {
     return this.http.put<any>(url, profesor);
   }
 
+  //Inscripciones
+  // Método para obtener todos las inscripciones
+  obtenerInscripciones(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrlInscripciones);
+  }
+  // Método para eliminar un profesor por su ID
+  eliminarInscripcion(id: string): Observable<any> {
+    const url = `${this.apiUrlInscripciones}/${id}`;
+    return this.http.delete<any>(url);
+  }
+
+  // Método para guardar la edición de un inscripcion
+  guardarInscripcionEditada(inscripcion: any): Observable<any> {
+    const url = `${this.apiUrlInscripciones}/editar/${inscripcion.id}`;
+    return this.http.put<any>(url, inscripcion);
+  }
+
+
+
   // Método para obtener todos los profesores
   obtenerAlumnos(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrlAlumnos);
   }
-  // Método para obtener todos los profesores
-  obtenerInscripciones(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrlInscripciones);
-  }
+
   // Método para obtener todos los profesores
   obtenerMensajes(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrlMensajes);

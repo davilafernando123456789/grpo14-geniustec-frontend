@@ -44,6 +44,8 @@ import { ScholarsComponent } from './pages/admin/scholars/scholars.component';
 import { MessengerComponent } from './pages/admin/messenger/messenger.component';
 import { InscriptionsComponent } from './pages/admin/inscriptions/inscriptions.component';
 import { SchedulesComponent } from './pages/admin/schedules/schedules.component';
+import { DataTablesModule } from 'angular-datatables';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,6 +91,7 @@ import { SchedulesComponent } from './pages/admin/schedules/schedules.component'
     HttpClientModule,
     NgxPayPalModule,
     FullCalendarModule,
+    DataTablesModule,
     BrowserAnimationsModule,
     FormsModule ,
     CalendarModule.forRoot({
