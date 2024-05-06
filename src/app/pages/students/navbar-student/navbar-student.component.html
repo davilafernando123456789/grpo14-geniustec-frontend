@@ -153,4 +153,104 @@
                     <span class="title"> Cerrar sesión</span>
                 </a>
             </li>
+<<<<<<< HEAD
     </div>
+=======
+          </ng-container>
+          <ng-container *ngIf="usuarioLogueado?.rol === 1">
+            <li class="nav-item">
+              <a routerLink="/conversation" class="nav-link" routerLinkActive="active">
+                <i class="nav-icon far fa-envelope"></i>
+                <p>Mensajes</p>
+              </a>
+            </li>
+          </ng-container>
+          <ng-container *ngIf="usuarioLogueado?.rol === 1">
+          <li class="nav-item">
+            <a  routerLink="/calendarStudent" class="nav-link" routerLinkActive="active">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Calendario
+                <span class="badge badge-info right">2</span>
+              </p>
+            </a>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="usuarioLogueado?.rol === 2">
+          <li class="nav-item">
+            <a  routerLink="/calendarTeacher" class="nav-link" routerLinkActive="active">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Calendario
+                <span class="badge badge-info right">2</span>
+              </p>
+            </a>
+          </li>
+        </ng-container>
+        <!-- <ng-container *ngIf="usuarioLogueado?.rol === 1">
+          <li class="nav-item">
+            <a routerLink="/conversation" class="nav-link" routerLinkActive="active">
+              <i class="nav-icon fas fa-bell"></i>
+              <p>
+                Notificaciones
+              </p>
+            </a>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="usuarioLogueado?.rol === 2">
+          <li class="nav-item">
+            <a routerLink="/conversations" class="nav-link" routerLinkActive="active">
+              <i class="nav-icon fas fa-bell"></i>
+              <p>
+                Notificaciones
+              </p>
+            </a>
+          </li>
+        </ng-container> -->
+          
+        <li class="nav-item">
+              <a routerLink="/meetings"  class="nav-link" routerLinkActive="active">
+                <i class="nav-icon fas fa-chalkboard-teacher"></i>
+                <p>
+                  Sala de clase
+                </p>
+              </a>
+            </li>
+          <br><br><br><br><br><br><br>   <br>
+          <br>
+          <br>
+          <br>
+          <li class="nav-header">Ajustes</li>
+         
+          <ng-container *ngIf="usuarioLogueado?.rol === 1">
+            <li class="nav-item">
+              <a routerLink="/studentProfile" class="nav-link" routerLinkActive="active">
+                <i class="nav-icon fas fa-user"></i>
+                <p>Cuenta</p>
+              </a>
+            </li>
+         
+          </ng-container>
+          <ng-container *ngIf="usuarioLogueado?.rol === 2">
+            <li class="nav-item">
+              <a routerLink="/profile" class="nav-link" routerLinkActive="active">
+                <i class="nav-icon fas fa-user"></i>
+                <p>Cuenta</p>
+              </a>
+            </li>
+          </ng-container>
+          <li class="nav-item">
+            <a class="nav-link" (click)="cerrarSesion()">
+              <i class="nav-icon fas fa-sign-out-alt"></i>
+              <p>Cerrar sesión</p>
+            </a>
+          </li>
+          <br><br><br><br><br><br><br>   <br>
+          <br><br><br><br><br><br><br>   <br>
+          <br><br><br><br><br><br><br>   <br>
+          <br><br><br><br><br><br><br>   <br>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+>>>>>>> f3710698e5ceedc3ac05c97aa64b284814824cda

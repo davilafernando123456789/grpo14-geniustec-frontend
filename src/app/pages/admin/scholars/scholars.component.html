@@ -1,0 +1,57 @@
+
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 offset-md-3">
+        <div class="row">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">Listado de alumnos</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nombre:</th>
+                    <th>Apellido:</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                    <th>Genero</th>
+                    <th>Usuario</th>
+                    <th>Password</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let alumno of alumnos" (click)="selectAlumno(alumno)">
+                    <td>{{ alumno.id }}</td>
+                    <td>{{ alumno.nombre }}</td>
+                    <td>{{ alumno.apellido }}</td>
+                    <td>{{ alumno.email  }}</td>
+                    <td>{{ alumno.telefono  }}</td>
+                    <td>{{ alumno.genero  }}</td>
+                    <td>{{ alumno.usuario  }}</td>
+                    <td>{{ alumno.password  }}</td>
+
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nombre:</th>
+                    <th>Apellido:</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                    <th>Genero</th>
+                    <th>Usuario</th>
+                    <th>Password</th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>  

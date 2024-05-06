@@ -81,7 +81,7 @@ export class TeacherComponent {
         console.log('Respuesta del servidor:', response);
         alert('Profesor creado correctamente');
         // this.router.navigate(['/otra-pagina']);
-        this.router.navigate(['/calendarRegister', response.usuario.id]);
+        this.router.navigate(['/calendarRegister']);
       },
       error => {
         console.error('Error al enviar los datos:', error);
@@ -91,54 +91,3 @@ export class TeacherComponent {
   }
 }
 
-
-// export class TeacherComponent {
-
-//   profesores: any = {};
-//   educativos: any = {};
-//   direccion: any = {};
-
-// constructor(private http: HttpClient, private router: Router) {}
-
-// submitForm() {
-//   const data = {
-//     email: this.profesores.email,
-//     usuario: this.profesores.usuario,
-//     password: this.profesores.password,
-//     nombre: this.profesores.nombre,
-//     apellido: this.profesores.apellido,
-//     genero: this.profesores.genero,
-//     dni: this.profesores.dni,
-//     telefono: this.profesores.telefono,
-//     fecha_nac: this.profesores.fecha_nac,
-//     Roles_id: 2,
-//     especialidad: this.profesores.especialidad,
-//     // foto:this.profesor.foto,
-//     foto: "Imagen de un profesor",
-//     educativos: {
-//       nombre: this.educativos.nombre,
-//       institucion: this.educativos.institucion,
-//       fecha_obtencion: this.educativos.fecha_obtencion,
-//       pais_institucion: this.educativos.pais_institucion,
-//       nivel_educacion: this.educativos.nivel_educacion
-//     },
-//     direccion: {
-//       calle: this.direccion.calle,
-//       distrito: this.direccion.distrito,
-//       ciudad: this.direccion.ciudad,
-//       codigo_postal: this.direccion.codigo_postal
-//     }
-//   };
-// this.http.post<any>('http://localhost:4000/api/profesores', data)
-//   .subscribe(
-//     response => {
-//       console.log('Respuesta del servidor:', response);
-//       alert('Profesor creado correctamente. ID del profesor: ' + response.id);
-//       this.router.navigate(['/otra-pagina']);
-//     },
-//     error => {
-//       console.error('Error al enviar los datos:', error);
-//       alert('Error al crear el profesor. Por favor, inténtalo de nuevo más tarde.');
-//     }
-//   );
-// }

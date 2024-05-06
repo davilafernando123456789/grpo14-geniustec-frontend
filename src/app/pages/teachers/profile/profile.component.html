@@ -26,6 +26,7 @@
                 <i class="fas fa-times"></i> Cancelar
               </button>
             </div>
+<<<<<<< HEAD
           </div>
           <div *ngIf="!editMode">
             <p><i class="fas fa-envelope"></i> <strong>Email:</strong> {{ profesor.email }}</p>
@@ -33,6 +34,14 @@
             <p><i class="fas fa-align-left"></i> <strong>Descripción:</strong> {{ profesor.descripcion }}</p>
             <div class="profile-actions">
               
+=======
+
+
+            <!-- teacher-profile.component.html -->
+            <div class="teacher-profile">
+                <h2>Horarios del profesor</h2><a routerLink="/calendarRegister"  type="button" class="btn btn-primary">Ir a registrar horario</a>
+                <full-calendar [options]="calendarOptions"></full-calendar>
+>>>>>>> f3710698e5ceedc3ac05c97aa64b284814824cda
             </div>
           </div>
         </div>

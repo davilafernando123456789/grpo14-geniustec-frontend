@@ -83,7 +83,6 @@
                 <i class="fa fa-download"></i> Descargar archivo
               </a>
             </div>
-
             <div *ngIf="mensaje.audio_url" class="message-content">
               <audio controls>
                 <source [src]="mensaje.audio_url" type="audio/mpeg">
@@ -92,7 +91,6 @@
             </div>
           </div>
         </div>
-
         <div class="input-container">
           <input type="text" [(ngModel)]="nuevoMensaje" placeholder="Escribe un mensaje..." class="message-input">
           <button (click)="iniciarGrabacion()" [disabled]="grabando" class="record-button">Grabar mensaje de

@@ -38,8 +38,19 @@ import { NavbarTeacherComponent } from './pages/teachers/navbar-teacher/navbar-t
 import { ProfileComponent } from './pages/teachers/profile/profile.component';
 import { StudentProfileComponent } from './pages/students/student-profile/student-profile.component';
 import { CalendarTeacherComponent } from './pages/teachers/calendar-teacher/calendar-teacher.component';
+<<<<<<< HEAD
 import { TopbarComponent } from './pages/topbar/topbar.component';
 import { IonicModule } from '@ionic/angular';
+=======
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { MastersComponent } from './pages/admin/masters/masters.component';
+import { ScholarsComponent } from './pages/admin/scholars/scholars.component';
+import { MessengerComponent } from './pages/admin/messenger/messenger.component';
+import { InscriptionsComponent } from './pages/admin/inscriptions/inscriptions.component';
+import { SchedulesComponent } from './pages/admin/schedules/schedules.component';
+import { DataTablesModule } from 'angular-datatables';
+
+>>>>>>> f3710698e5ceedc3ac05c97aa64b284814824cda
 @NgModule({
   declarations: [
     AppComponent,
@@ -71,7 +82,16 @@ import { IonicModule } from '@ionic/angular';
     ProfileComponent,
     StudentProfileComponent,
     CalendarTeacherComponent,
+<<<<<<< HEAD
     TopbarComponent
+=======
+    DashboardComponent,
+    MastersComponent,
+    ScholarsComponent,
+    MessengerComponent,
+    InscriptionsComponent,
+    SchedulesComponent
+>>>>>>> f3710698e5ceedc3ac05c97aa64b284814824cda
   ],
   imports: [
     BrowserModule,
@@ -81,6 +101,7 @@ import { IonicModule } from '@ionic/angular';
     HttpClientModule,
     NgxPayPalModule,
     FullCalendarModule,
+    DataTablesModule,
     BrowserAnimationsModule,
     FormsModule ,
     CalendarModule.forRoot({
