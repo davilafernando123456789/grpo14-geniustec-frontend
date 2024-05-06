@@ -1,8 +1,12 @@
 <app-navbar-student></app-navbar-student>
-<div class="container">
-  <div class="row">
+<div class="main">
+<app-topbar></app-topbar>
+<div class="details">
+  <div class="recentOrders">
+    <div class="cardHeader">
     <div class="col-md-8 offset-md-3">
       <h2>Bienvenido a la sección de reuniones pendientes</h2>
+
       <div *ngFor="let reunion of reuniones" class="card mb-3">
 
       <div *ngFor="let reunion of reuniones">
@@ -19,3 +23,4 @@
     </div>
   </div>
 </div>
+  </div>

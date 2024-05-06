@@ -1,5 +1,6 @@
+
 body {
-  background-color: #FBB311;
+  background-color: #1C1678;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -205,7 +206,7 @@ body {
 
 
 .icon-transparent {
-  color: #36D7FF;
+  color:  #1C1678;
 }
 
 .input-group {

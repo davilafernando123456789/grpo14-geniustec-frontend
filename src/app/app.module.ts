@@ -38,6 +38,8 @@ import { NavbarTeacherComponent } from './pages/teachers/navbar-teacher/navbar-t
 import { ProfileComponent } from './pages/teachers/profile/profile.component';
 import { StudentProfileComponent } from './pages/students/student-profile/student-profile.component';
 import { CalendarTeacherComponent } from './pages/teachers/calendar-teacher/calendar-teacher.component';
+import { TopbarComponent } from './pages/topbar/topbar.component';
+import { IonicModule } from '@ionic/angular';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,10 +70,12 @@ import { CalendarTeacherComponent } from './pages/teachers/calendar-teacher/cale
     NavbarTeacherComponent,
     ProfileComponent,
     StudentProfileComponent,
-    CalendarTeacherComponent
+    CalendarTeacherComponent,
+    TopbarComponent
   ],
   imports: [
     BrowserModule,
+    IonicModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,

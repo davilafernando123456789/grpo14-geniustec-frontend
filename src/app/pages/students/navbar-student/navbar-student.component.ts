@@ -3,18 +3,21 @@ import { Router, NavigationEnd } from '@angular/router';
 
 interface UserData {
   usuario: string;
-  nombre: string; // Agrega el campo nombre
+  nombre: string;
   rol: number;
-  foto: string; 
+  foto: string;
 }
 
 @Component({
   selector: 'app-navbar-student',
   templateUrl: './navbar-student.component.html',
-  styleUrls: ['./navbar-student.component.css'],
+  styleUrls: ['./navbar-student.component.css']
 })
 export class NavbarStudentComponent implements OnInit {
-  usuarioLogueado: UserData | null = null; // Cambiado a tipo UserData
+  toggle: HTMLElement | null = null;
+  navigation: HTMLElement | null = null;
+  main: HTMLElement | null = null;
+  usuarioLogueado: UserData | null = null;
 
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
@@ -24,8 +27,43 @@ export class NavbarStudentComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    // No es necesario hacer nada aquí
+  ngOnInit(): void {
+    this.initializeElements();
+  }
+
+  initializeElements(): void {
+    this.toggle = document.querySelector('.toggle');
+    this.navigation = document.querySelector('.navigation');
+    this.main = document.querySelector('.main');
+
+    this.addHoverClass();
+    this.toggleNavigation();
+  }
+
+  addHoverClass(): void {
+    const listItems = document.querySelectorAll('.navigation li');
+    listItems.forEach((item: Element, index: number) => {
+      item.addEventListener('mouseover', () => this.activeLink(item, index));
+    });
+  }
+
+  activeLink(item: Element, index: number): void {
+    const listItems = document.querySelectorAll('.navigation li');
+    listItems.forEach((li: Element, i: number) => {
+      li.classList.remove('hovered');
+      if (i === index) {
+        item.classList.add('hovered');
+      }
+    });
+  }
+
+  toggleNavigation(): void {
+    if (this.toggle && this.navigation && this.main) {
+      this.toggle.onclick = () => {
+        this.navigation?.classList.toggle('active');
+        this.main?.classList.toggle('active');
+      };
+    }
   }
 
   getUserData() {
@@ -35,14 +73,15 @@ export class NavbarStudentComponent implements OnInit {
       this.usuarioLogueado = {
         usuario: userData.usuario,
         nombre: userData.nombre,
-        rol: userData.rol, 
-        foto: userData.foto, 
+        rol: userData.rol,
+        foto: userData.foto,
       };
     }
   }
+
   cerrarSesion() {
-    sessionStorage.removeItem('usuario'); // Elimina el usuario de la sesión
-    this.usuarioLogueado = null; // Limpia los datos del usuario en el componente
-    this.router.navigate(['/']); // Redirecciona al usuario a la página de inicio de sesión
+    sessionStorage.removeItem('usuario');
+    this.usuarioLogueado = null;
+    this.router.navigate(['/']);
   }
 }
