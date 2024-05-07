@@ -13,7 +13,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #36D7FF;
+  background-color: #1C1678;
   color: #fff;
   padding: 10px 20px;
   border-radius: 10px 10px 0 0;
@@ -61,7 +61,8 @@ body {
 }
 
 .sent {
-  background-color: #dcf8c6;
+  background-color: #48d6db
+;
   margin-left: auto;
   border-bottom-right-radius: 5px;
 }
@@ -111,7 +112,7 @@ body {
 .record-button,
 .stop-record-button,
 .send-button {
-  background-color: #36D7FF;
+  background-color: #1C1678;
   color: #fff;
   border: none;
   border-radius: 20px;
@@ -131,4 +132,31 @@ body {
 .stop-record-button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+/* conversation.component.css */
+
+/* Estilos para el input de tipo archivo */
+#fileInput {
+  /* Estilos generales */
+  display: block; /* Mostrar como bloque para ocupar toda la anchura del contenedor */
+  margin-top: 10px; /* Margen superior */
+  /* Personalización visual */
+  padding: 10px; /* Añadir un relleno para mayor comodidad */
+  border: 1px solid #ccc; /* Borde delgada */
+  border-radius: 5px; /* Esquinas redondeadas */
+  background-color: #f9f9f9; /* Fondo gris claro */
+  color: #333; /* Color de texto oscuro */
+  cursor: pointer; /* Mostrar el cursor como puntero al pasar sobre él */
+}
+
+/* Estilos para el input de tipo archivo cuando se hace clic */
+#fileInput:focus {
+  outline: none; /* Eliminar el contorno predeterminado al hacer clic */
+  border-color: #66afe9; /* Cambiar el color del borde al hacer clic */
+}
+
+/* Estilos para el input de tipo archivo cuando se pasa el ratón sobre él */
+#fileInput:hover {
+  background-color: #e0e0e0; /* Cambiar el fondo al pasar el ratón */
 }

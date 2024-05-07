@@ -1,4 +1,4 @@
-body {
+/* body {
     background-color: #FBB311;
     display: flex;
     justify-content: center;
@@ -7,7 +7,7 @@ body {
     position: relative;
     overflow: hidden;
     font-family: 'Roboto', sans-serif;
-  }
+  } */
   
   .circle {
     position: absolute;

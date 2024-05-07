@@ -38,6 +38,9 @@ import { NavbarTeacherComponent } from './pages/teachers/navbar-teacher/navbar-t
 import { ProfileComponent } from './pages/teachers/profile/profile.component';
 import { StudentProfileComponent } from './pages/students/student-profile/student-profile.component';
 import { CalendarTeacherComponent } from './pages/teachers/calendar-teacher/calendar-teacher.component';
+import { TopbarComponent } from './pages/topbar/topbar.component';
+import { IonicModule } from '@ionic/angular';
+
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { MastersComponent } from './pages/admin/masters/masters.component';
 import { ScholarsComponent } from './pages/admin/scholars/scholars.component';
@@ -48,9 +51,7 @@ import { SchedulesComponent } from './pages/admin/schedules/schedules.component'
 // import { NgxPaginationModule } from 'ngx-pagination';
 // import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 // import { ModalModule } from 'ngx-bootstrap/modal';
-import { IonicModule } from '@ionic/angular';
 import { BaseChartDirective } from 'ng2-charts';
-
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { BaseChartDirective } from 'ng2-charts';
     ProfileComponent,
     StudentProfileComponent,
     CalendarTeacherComponent,
+    TopbarComponent,
     DashboardComponent,
     MastersComponent,
     ScholarsComponent,
@@ -92,6 +94,8 @@ import { BaseChartDirective } from 'ng2-charts';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    SchedulesComponent,
+    IonicModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,

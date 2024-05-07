@@ -1,130 +1,81 @@
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #C1EDED;
+.nav-icon {
+    font-size: 25px; /* Ajusta el tamaño del icono según sea necesario */
+    color: #1C1678;
   }
-  
-  .container {
-    margin-top: 30px;
+  .nav-icon1 {
+    color: #1C1678;
   }
-  
-  h2 {
-    color: #36D7FF;
-    text-align: center;
-    margin-bottom: 30px;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 40px;
+
+  .buscar {
+    display: flex; /* Utilizar flexbox */
+    align-items: center; /* Alinear elementos verticalmente */
     position: relative;
-  }
-  h2::after {
-    content: "";
-    display: block;
-    width: 80px;
-    height: 3px;
-    background-color: #FBB311; /* Cambiado a amarillo brillante */
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  /* Buscador */
-  .form-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 30px;
+    padding: 5px;
   }
   
-  .form-control {
-    width: 60%;
-    border: 2px solid #36D7FF;
-    border-radius: 5px;
-    padding: 10px;
+  .buscar input {
+    width: calc(100%); /* Tamaño calculado para dejar espacio al botón */
+    height: 40px;
+    padding: 0 20px;
     font-size: 16px;
+    color: #1C1678;
+    outline: none;
+    border: 3px solid #1C1678;
+    border-radius: 5px;
+    transition: all 0.6s ease;
   }
   
-  .btn-primary {
-    background-color: #36D7FF;
-    border-color: #36D7FF;
-    margin-left: 10px;
-  }
-  
-  .btn-primary:hover {
-    background-color: #1da7d1;
-    border-color: #1da7d1;
-  }
-  
-  /* Tarjetas de profesores */
-  /* Estilos 3D para las tarjetas */
-.card {
-    border: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    background-color: #f7f7f7;
-    transform-style: preserve-3d;
-    perspective: 1000px;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px) rotateX(10deg);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    background-color: #e9e9e9;
-  }
-  
-  .card-body {
-    transform: translateZ(20px);
-  }
-  
-  .card-img-top {
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  
-  .card-title {
-    color: #36D7FF;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .card-text {
-    color: #333;
-    margin-bottom: 5px;
-  }
-  
-  /* Botón de cargar más */
-  .btn-primary.mt-3 {
-    background-color: #FBB311;
-    border-color: #FBB311;
-    display: block;
-    margin: 30px auto 0;
-  }
-  
-  .btn-primary.mt-3:hover {
-    background-color: #e8a809;
-    border-color: #e8a809;
-  }
-  
-  /* Spinner de carga */
-  .fa-spinner {
-    color: #FD829D;
-  }
-  
-  /* Mensaje de no encontrado */
-  .alert-warning {
-    background-color: #FFFA86;
-    border-color: #FFFA86;
-    color: #333;
-  }
+  .btn {
+    height: 40px; /* Ajuste de altura para que coincida con el input */
+    margin-left: -40px; /* Espacio negativo para superponer el botón al input */
+    z-index: 1; /* Asegurar que el botón esté por encima del input */
+    border: 3px solid #1C1678;
 
-
-  .card-img-top {
-    width: 150px; /* Ajusta el tamaño según tus necesidades */
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin: 0 auto; /* Centra la imagen horizontalmente */
   }
+  
+
+.card-content {
+  display: flex;
+}
+
+.card-img-container {
+  flex: 0 0 40%;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente la imagen */
+  align-items: center; /* Centra verticalmente la imagen */
+  margin-right: 20px; /* Añade espacio entre la imagen y el texto */
+}
+
+.card-img-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 10%; /* Aplica bordes redondeados para hacer la imagen circular */
+  overflow: hidden; /* Oculta cualquier parte de la imagen que se salga del círculo */
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+}
+
+.card-body {
+  flex: 1;
+  padding-left: 20px; /* Espacio entre la imagen y el texto */
+}
+
+.card-title {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.cardSpecialty {
+  font-size: 16px;
+  margin-bottom: 5px;
+
+}
+
+.cardDescription {
+  font-size: 14px;
+  margin-bottom: 5px;
+
+}

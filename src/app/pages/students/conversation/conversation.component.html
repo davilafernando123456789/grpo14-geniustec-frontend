@@ -1,20 +1,56 @@
 <app-navbar-student></app-navbar-student>
+<<<<<<< HEAD
+<div class="main">
+  <app-topbar></app-topbar>
+  <div class="details">
+    <div class="recentCustomers">
+            <div class="cardHeader " *ngIf="profesores.length > 0">
+              <table *ngIf="profesores.length > 0">
+                <h2 >Mensajes</h2>
+                <tr *ngFor="let profesor of profesores">
+                  <td width="60px">
+                    <div class="imgBx">
+                      <img src="{{ profesor.foto }}" alt="" (click)="iniciarConversacion(profesor.id)">
+                    </div>
+                  </td>
+                  <td>
+                    <h4 (click)="iniciarConversacion(profesor.id)">{{ profesor.nombre }} {{ profesor.apellido }}</h4>
+                  </td>
+              </tr>
+          </table>
+          </div>
+        </div>
+       
+    </div>
+</div>
+      <!-- <div class="cardHeader" *ngIf="profesores.length > 0">
+=======
 
 <div class="container">
   <div class="row">
     <div class="col-md-8 offset-md-2">
       <div *ngIf="profesores.length > 0">
+>>>>>>> f3710698e5ceedc3ac05c97aa64b284814824cda
         <h2>Mensajes</h2>
-        <ul>
-          <li *ngFor="let profesor of profesores" (click)="iniciarConversacion(profesor.id)" style="color: black;">
-            {{ profesor.nombre }} {{ profesor.apellido }}
-          </li>
-        </ul>
+      </div>
+        <table *ngIf="profesores.length > 0">
+          <tr *ngFor="let profesor of profesores">
+            <td width="60px">
+              <div class="imgBx">
+                <img src="{{ profesor.foto }}" alt="" (click)="iniciarConversacion(profesor.id)">
+              </div>
+            </td>
+            <td style="height: auto; padding-top: 10px;">
+              <h4 (click)="iniciarConversacion(profesor.id)">{{ profesor.nombre }} {{ profesor.apellido }}</h4>
+            </td>
+          </tr>
+        </table>
       </div>
       
+      
+
       <div *ngIf="profesores.length === 0">
         <p>No hay profesores disponibles.</p>
       </div>
     </div>
-  </div>
-</div>
+  </div> -->

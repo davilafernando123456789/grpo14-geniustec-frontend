@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-register-teacher',
   templateUrl: './teacher.component.html',
-  styleUrls: ['./teacher.component.css']
+  styleUrls: ['./teacher.component.css', './adminlte.min.css']
 })
 export class TeacherComponent {
 
