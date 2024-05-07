@@ -25,11 +25,15 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
-              "node_modules/sweetalert2/src/sweetalert2.scss"
+              "node_modules/sweetalert2/src/sweetalert2.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.css"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.min.js"
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/datatables.net/js/dataTables.min.js",
+              "node_modules/jquery/dist/jquery.js"
             ]
           },
           "configurations": {
@@ -63,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "sistema:build:production"
+              "buildTarget": "sistema:build:production"
             },
             "development": {
-              "browserTarget": "sistema:build:development"
+              "buildTarget": "sistema:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -74,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "sistema:build"
+            "buildTarget": "sistema:build"
           }
         },
         "test": {

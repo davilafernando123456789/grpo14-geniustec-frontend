@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +18,12 @@ export class AdminService {
   obtenerProfesores(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrlProfesores);
   }
+
+  buscarProfesoresPorNombre(nombre: string): Observable<any[]> {
+    const params = new HttpParams().set('nombre', nombre);
+    return this.http.get<any[]>(`${this.apiUrlProfesores}/search`, { params });
+  }
+
   // Método para eliminar un profesor por su ID
   eliminarProfesor(id: string): Observable<any> {
     const url = `${this.apiUrlProfesores}/${id}`;
@@ -47,16 +53,69 @@ export class AdminService {
     return this.http.put<any>(url, inscripcion);
   }
 
+  //Mensajes
+  // Método para obtener todos los mensajes
+  obtenerMensajes(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrlMensajes);
+  }
+  buscarMensajesPorContenido(contenido: string): Observable<any[]> {
+    const params = new HttpParams().set('contenido', contenido);
+    return this.http.get<any[]>(`${this.apiUrlMensajes}/search`, { params });
+  }
 
+  // Método para eliminar un mensaje por su ID
+  eliminarMensaje(id: string): Observable<any> {
+    const url = `${this.apiUrlMensajes}/${id}`;
+    return this.http.delete<any>(url);
+  }
+  // Método para guardar la edición de un mensaje
+  guardarMensajeEditado(mensaje: any): Observable<any> {
+    const url = `${this.apiUrlMensajes}/editar/${mensaje.id}`;
+    return this.http.put<any>(url, mensaje);
+  }
 
-  // Método para obtener todos los profesores
+  //Horarios
+  obtenerHorarios(): Observable<any[]> {
+    const url = `${this.apiUrlHorarios}`;
+    return this.http.get<any[]>(url);
+  }
+  buscarHorariosPorFecha(horario: string): Observable<any[]> {
+    const params = new HttpParams().set('horario', horario);
+    return this.http.get<any[]>(`${this.apiUrlHorarios}/search`, { params });
+  }
+
+  // Método para eliminar un horario por su ID
+  eliminarHorario(id: string): Observable<any> {
+    const url = `${this.apiUrlHorarios}/${id}`;
+    return this.http.delete<any>(url);
+  }
+  // Método para guardar la edición de un horario
+  guardarHorarioEditado(horario: any): Observable<any> {
+    const url = `${this.apiUrlHorarios}/editar/${horario.id}`;
+    return this.http.put<any>(url, horario);
+  }
+
+  ///Alumnos
+  // Método para obtener todos los alumnos
   obtenerAlumnos(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrlAlumnos);
   }
 
-  // Método para obtener todos los profesores
-  obtenerMensajes(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrlMensajes);
+  buscarAlumnosPorNombre(nombre: string): Observable<any[]> {
+    const params = new HttpParams().set('nombre', nombre);
+    return this.http.get<any[]>(`${this.apiUrlAlumnos}/search`, { params });
+  }
+
+  // Método para eliminar un alumno por su ID
+  eliminarAlumno(id: string): Observable<any> {
+    const url = `${this.apiUrlAlumnos}/${id}`;
+    return this.http.delete<any>(url);
+  }
+
+  // Método para guardar la edición de un alumno
+  guardarAlumnoEditado(alumno: any): Observable<any> {
+    const url = `${this.apiUrlAlumnos}/editar/${alumno.id}`;
+    return this.http.put<any>(url, alumno);
   }
 
   // Método para obtener un profesor por su ID
@@ -112,10 +171,6 @@ export class AdminService {
     return this.http.get<any[]>(url, { params });
   }
 
-  obtenerHorarios(): Observable<any[]> {
-    const url = `${this.apiUrlHorarios}`;
-    return this.http.get<any[]>(url);
-  }
   obtenerIdsHorariosPorAlumnoId(alumnoId: string): Observable<string[]> {
     const url = `${this.apiUrlInscripciones}/alumno/${alumnoId}`;
     return this.http.get<string[]>(url);

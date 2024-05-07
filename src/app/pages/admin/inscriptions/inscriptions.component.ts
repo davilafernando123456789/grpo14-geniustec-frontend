@@ -5,14 +5,19 @@ declare var $: any;
 @Component({
   selector: 'app-inscriptions',
   templateUrl: './inscriptions.component.html',
-  styleUrls: ['./inscriptions.component.css']
+  styleUrls: ['./inscriptions.component.css'],
 })
 export class InscriptionsComponent implements OnInit {
   inscripciones: any[] = [];
   selectedInscripcion: any | null = null;
   editingInscripcion: any | null = null;
+  currentPage = 1;
+  itemsPerPage = 5;
+  key: string = '';
+  searchTerm: string = '';
+  reverse: boolean = false;
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService) {}
 
   ngOnInit(): void {
     this.getInscripciones();
@@ -43,18 +48,23 @@ export class InscriptionsComponent implements OnInit {
   guardarEdicion(): void {
     // Lógica para guardar la edición
     if (this.editingInscripcion) {
-      this.adminService.guardarInscripcionEditada(this.editingInscripcion).subscribe(
-        () => {
-          // Actualizar la lista de inscripciones después de guardar la edición
-          this.getInscripciones();
-          this.editingInscripcion = null;
-          alert('La inscripción ha sido actualizada exitosamente.');
-        },
-        (error) => {
-          console.error('Error al guardar la edición de la inscripción:', error);
-          alert('Error al actualizar inscripción.');
-        }
-      );
+      this.adminService
+        .guardarInscripcionEditada(this.editingInscripcion)
+        .subscribe(
+          () => {
+            // Actualizar la lista de inscripciones después de guardar la edición
+            this.getInscripciones();
+            this.editingInscripcion = null;
+            alert('La inscripción ha sido actualizada exitosamente.');
+          },
+          (error) => {
+            console.error(
+              'Error al guardar la edición de la inscripción:',
+              error
+            );
+            alert('Error al actualizar inscripción.');
+          }
+        );
     }
   }
 
@@ -77,5 +87,56 @@ export class InscriptionsComponent implements OnInit {
         alert('Error al eliminar la inscripción');
       }
     );
+  }
+  sort(key: string): void {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
+  search(): void {
+    console.log('search');
+    this.adminService.buscarProfesoresPorNombre(this.searchTerm).subscribe(
+      (response) => {
+        console.log('Response de búsqueda:', response);
+        this.inscripciones = response;
+      },
+      (error) => {
+        console.error('Error al buscar los profesores:', error);
+      }
+    );
+  }
+
+  onPageChange(pageNumber: number): void {
+    console.log('Número de página:', pageNumber); 
+    this.currentPage = pageNumber;
+  }
+  goToFirstPage(): void {
+    this.currentPage = 1;
+  }
+
+  goToLastPage(): void {
+    this.currentPage = this.totalPages;
+  }
+
+  goToNextPage(): void {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  }
+
+  goToPreviousPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.inscripciones.length / this.itemsPerPage);
+  }
+
+  // Devuelve los elementos correspondientes a la página actual
+  get currentPageData(): any[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.inscripciones.slice(startIndex, endIndex);
   }
 }

@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
-import { FormsModule } from '@angular/forms'; 
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/users/login/login.component';
 import { CreateUserComponent } from './pages/users/create-user/create-user.component';
@@ -44,7 +44,13 @@ import { ScholarsComponent } from './pages/admin/scholars/scholars.component';
 import { MessengerComponent } from './pages/admin/messenger/messenger.component';
 import { InscriptionsComponent } from './pages/admin/inscriptions/inscriptions.component';
 import { SchedulesComponent } from './pages/admin/schedules/schedules.component';
-import { DataTablesModule } from 'angular-datatables';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { NgxPaginationModule } from 'ngx-pagination';
+// import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+// import { ModalModule } from 'ngx-bootstrap/modal';
+import { IonicModule } from '@ionic/angular';
+import { BaseChartDirective } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -60,7 +66,6 @@ import { DataTablesModule } from 'angular-datatables';
     TeacherComponent,
     HomeComponent,
     NavbarStudentComponent,
-    CalendarStudentComponent,
     CalendarStudentComponent,
     InicioComponent,
     PrecioComponent,
@@ -82,24 +87,29 @@ import { DataTablesModule } from 'angular-datatables';
     ScholarsComponent,
     MessengerComponent,
     InscriptionsComponent,
-    SchedulesComponent
+    SchedulesComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
     NgxPayPalModule,
+    // BsDropdownModule.forRoot(),
     FullCalendarModule,
-    DataTablesModule,
-    BrowserAnimationsModule,
-    FormsModule ,
+    IonicModule,
+    [BaseChartDirective],
+    // NgbModule,
+    // NgxPaginationModule,
+    // ModalModule.forRoot(),
+    FormsModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
-      useFactory: adapterFactory
+      useFactory: adapterFactory,
     }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

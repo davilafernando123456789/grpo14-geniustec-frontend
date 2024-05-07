@@ -1,37 +1,23 @@
-
+import { Component } from '@angular/core';
 import { AdminService } from '../admin.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { DataTableDirective } from 'angular-datatables';
-import * as $ from 'jquery';
-import 'datatables.net';
-import 'datatables.net-dt/css/jquery.dataTables.css';
-import { Subject } from 'rxjs';
 
-// Otros imports...
 @Component({
   selector: 'app-masters',
   templateUrl: './masters.component.html',
-  styleUrls: ['./masters.component.css']
+  styleUrls: ['./masters.component.css'],
 })
-export class MastersComponent implements OnInit {
-  dtElement: DataTableDirective | null = null;
-  @ViewChild(DataTableDirective, { static: false })
-  dtOptions: DataTables.Settings = {};
-  dtTrigger: Subject<any> = new Subject<any>();
-
+export class MastersComponent {
   profesores: any[] = [];
+  currentPage = 1; // Página actual
+  itemsPerPage = 5; // Cambia esto según la cantidad de elementos por página que desees
+  key: string = '';
+  searchTerm: string = '';
+  reverse: boolean = false;
   editingProfesor: any | null = null;
 
-  constructor(private adminService: AdminService) { }
+  constructor(private adminService: AdminService) {}
 
   ngOnInit(): void {
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 10,
-      language: {
-        url: '//cdn.datatables.net/plug-ins/1.10.25/i18n/Spanish.json'
-      }
-    };
     this.getProfesores();
   }
 
@@ -39,7 +25,6 @@ export class MastersComponent implements OnInit {
     this.adminService.obtenerProfesores().subscribe(
       (response) => {
         this.profesores = response;
-        this.dtTrigger.next(null); // Recargar DataTables después de obtener los profesores
       },
       (error) => {
         console.error('Error al obtener los profesores:', error);
@@ -47,8 +32,13 @@ export class MastersComponent implements OnInit {
     );
   }
 
+  sort(key: string): void {
+    this.key = key;
+    this.reverse = !this.reverse;
+  }
+
   editProfesor(profesor: any): void {
-    this.editingProfesor = { ...profesor };
+    this.editingProfesor = { ...profesor }; // Clonar el profesor para evitar cambios directos
   }
 
   guardarEdicion(): void {
@@ -56,6 +46,7 @@ export class MastersComponent implements OnInit {
     if (this.editingProfesor) {
       this.adminService.guardarProfesorEditado(this.editingProfesor).subscribe(
         () => {
+          // Actualizar la lista de profesores después de guardar la edición
           this.getProfesores();
           this.editingProfesor = null;
           alert('El profesor ha sido actualizado exitosamente.');
@@ -69,14 +60,17 @@ export class MastersComponent implements OnInit {
   }
 
   cancelarEdicion(): void {
-    this.editingProfesor = null;
+    this.editingProfesor = null; // Limpiar el profesor en edición
   }
 
   eliminarProfesor(id: number): void {
+    // Lógica para eliminar el profesor
     this.adminService.eliminarProfesor(id.toString()).subscribe(
       () => {
-        this.profesores = this.profesores.filter((profesor) => profesor.id !== id);
-        this.dtTrigger.next(null); // Recargar DataTables después de eliminar un profesor
+        // Actualizar la lista de profesores después de la eliminación
+        this.profesores = this.profesores.filter(
+          (profesor) => profesor.id !== id
+        );
         alert('El profesor ha sido eliminado exitosamente.');
       },
       (error) => {
@@ -86,7 +80,53 @@ export class MastersComponent implements OnInit {
     );
   }
 
-  ngOnDestroy(): void {
-    this.dtTrigger.unsubscribe();
+  search(): void {
+    console.log('search');
+    // Filtrar los profesores según el término de búsqueda
+    this.adminService.buscarProfesoresPorNombre(this.searchTerm).subscribe(
+      (response) => {
+        console.log('Response de búsqueda:', response);
+        this.profesores = response;
+      },
+      (error) => {
+        console.error('Error al buscar los profesores:', error);
+      }
+    );
+  }
+
+  onPageChange(pageNumber: number): void {
+    console.log('Número de página:', pageNumber); // Agregamos este console.log
+    this.currentPage = pageNumber;
+  }
+  goToFirstPage(): void {
+    this.currentPage = 1;
+  }
+
+  goToLastPage(): void {
+    this.currentPage = this.totalPages;
+  }
+
+  goToNextPage(): void {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  }
+
+  goToPreviousPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+
+  // Calcula el número total de páginas
+  get totalPages(): number {
+    return Math.ceil(this.profesores.length / this.itemsPerPage);
+  }
+
+  // Devuelve los elementos correspondientes a la página actual
+  get currentPageData(): any[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    return this.profesores.slice(startIndex, endIndex);
   }
 }
